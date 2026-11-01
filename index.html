@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <meta
+      name="description"
+      content="Track your monthly expenses and income, is a native js app with persistence your state in web api localstorage"
+    />
+    <meta
+      name="keywords"
+      content="JS | CSS | HTML | LocalStorage | Form Validation"
+    />
+    <meta name="author" content="Muhammed Soliman" />
+    <link
+      rel="canonical"
+      href="https://mohammed-soliman144.github.io/Expense-Tracker"
+    />
+    <link rel="stylesheet" href="./src/globals.css" />
+    <script type="module" src="./src/js/main.js"></script>
+  </head>
+  <body>
+    <main class="main">
+      <div class="container">
+        <h1 class="main__heading heading">expense tracker</h1>
+        <section class="main__summary" aria-labelledby="balance">
+          <h2 class="summary__heading heading" id="balance">
+            <span class="summary__heading__text">your balance</span
+            ><span class="summary__heading__balance">$0</span>
+          </h2>
+          <div class="summary__container">
+            <h3
+              class="summary__sub-heading sub-heading"
+              aria-label="total income is $0"
+            >
+              <span class="summary__sub-heading__text">income</span
+              ><span class="summary__sub-heading__balance">$0</span>
+            </h3>
+            <h3
+              class="summary__sub-heading sub-heading"
+              aria-label="total expenses is $0"
+            >
+              <span class="summary__sub-heading__text">expenses</span
+              ><span class="summary__sub-heading__balance">$0</span>
+            </h3>
+          </div>
+        </section>
+        <section class="main__transactions" aria-labelledby="transaction-title">
+          <div class="transactions__container">
+            <h3 class="tansactions__title sub-heading" id="trasaction-title">
+              transactions
+            </h3>
+            <ul class="transaction__list"></ul>
+          </div>
+          <div class="form__container">
+            <h3 class="form__title" id="add-transaction">add transaction</h3>
+            <form
+              action="./submit"
+              class="form__transactions"
+              method="GET"
+              aria-labelledby="add-transaction"
+            >
+              <div class="form__input">
+                <label for="desc">description</label>
+                <input
+                  type="text"
+                  id="desc"
+                  name="desc"
+                  placeholder="enter description..."
+                  autocomplete="off"
+                  required
+                />
+              </div>
+              <div class="form__input-container">
+                <div class="form__input">
+                  <label for="amount">amount</label>
+                  <input
+                    type="number"
+                    id="amount"
+                    name="amount"
+                    autocomplete="off"
+                    required
+                  />
+                </div>
+                <div class="form__input">
+                  <label for="trans-type"
+                    >select your type of transaction</label
+                  >
+                  <select name="trans-type" id="trans-type">
+                    <option value="income" selected>income</option>
+                    <option value="expense">expense</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form__controls">
+                <button type="submit" aria-label="Add new transaction">
+                  add transaction
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+      <template id="list-item-template">
+        <li class="transaction__list-item list-item">
+          <span class="list-item__text"></span>
+          <span class="list-item__amount"></span>
+          <div class="list-item__controls">
+            <button
+              type="button"
+              class="list-item__button button"
+              aria-label="delete your transaction"
+            >
+              <span class="sr-only">delete</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                class="button-icon icon"
+                role="img"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+        </li>
+      </template>
+    </main>
+  </body>
+</html>
